@@ -4718,3 +4718,30 @@ $(function() {
 		$('.openclose').not(this).next().slideUp();
 	});
 });
+
+	
+function redirectAfterSubmit(event) {
+event.preventDefault(); // デフォルトのフォーム送信を防ぐ
+// フォームデータの収集
+var form = event.target;
+var formData = new FormData(form);
+// フォームデータをサーバーに送信 (例: Fetch API を使った送信)
+fetch(form.action, {
+method: form.method,
+body: formData,
+})
+.then(function(response) {
+if (response.ok) {
+// 成功時の処理
+window.location.href = '/agency-thanks.html'; // 成功後にリダイレクト
+} else {
+// エラー時の処理（例えばエラーメッセージの表示など）
+alert('送信に失敗しました。再度お試しください。');
+}
+})
+.catch(function(error) {
+// ネットワークエラーやその他エラーの処理
+alert('送信エラーが発生しました。');
+});
+return false; // フォームが通常の方法で送信されないように false を返す
+}
