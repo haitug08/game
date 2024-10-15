@@ -268,7 +268,48 @@
           <h2 id="05">資料請求・お申込希望</h2>
           <p style="font-size:100%; font-weight:bold; line-height: 1.5;">以下のフォームにお客さまの情報を入力のうえ、「送信」をクリックしてください。
             <br>代理店または保険会社よりご連絡させていただきます。</p>
-          <?php echo do_shortcode( '[contact-form-7 id="9fa5228" title="資料請求・お申込希望"]');?>
+
+<table class="CF7_table">
+<tr>
+<th><span class="CF7_req">必須</span> ご希望内容</th>
+<td>[radio radio-524 use_label_element default:1 "資料請求" "お申込希望" "お問合せ"]</td>
+</tr>
+<tr>
+<th><span class="CF7_req">必須</span> お名前</th>
+<td>[text* your-name watermark"例：あなたのお名前"] </td>
+</tr>
+<tr>
+<th><span class="CF7_req">必須</span> メールアドレス</th>
+<td>[email* your-email watermark"例：×××@×××.com"]</td>
+</tr>
+<tr>
+<th><span class="CF7_req">必須</span>郵便番号</th>
+<td>[text* zip id:zip watermark"例：460-0003"] </td>
+</tr>
+<tr>
+<th><span class="CF7_req">必須</span>ご住所</th>
+<td class="address-100">[text* addr id:addr watermark"例：愛知県名古屋市中区錦2-13-30"]</td>
+</tr>
+<tr>
+<th><span class="CF7_req">必須</span>お電話番号</th>
+<td>[text* your-tel watermark"例：052-228-1335"]</td>
+</tr>
+<tr>
+<th><span class="CF7_unreq">任意</span>メッセージ本文</th>
+<td class="message-100">[textarea your-message watermark"お問い合わせ内容をご記入ください"]</td>
+</tr>
+<tr>
+<th><span class="CF7_req">必須</span>個人情報の取扱い</th>
+<td>[acceptance acceptance-945] <a href="#" class="js-modal-open" data-modal="modal2">プライバシーポリシー</a>に同意する [/acceptance]</td>
+</tr>
+</table>
+
+<table class="CF7_table" style="border: none;">
+<tr style="border: none;">
+<td><p class="CF7_btn">[submit "送信"]</p></td>
+</tr>
+</table>
+          
         </section>
         <section>
           <!-- モーダル本体 -->
