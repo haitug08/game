@@ -97,6 +97,7 @@ function update() {
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+
   // 地面
   ctx.strokeStyle = "#888";
   ctx.beginPath();
