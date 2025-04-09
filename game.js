@@ -126,8 +126,8 @@ function draw() {
   }
 
   if (gameOver) {
-    ctx.font = "28px sans-serif";
-    ctx.fillText("ゲームオーバー！スペースで再開", 220, 120);
+    ctx.font = "14px sans-serif";
+    ctx.fillText("Game Over / スペースで再開", 220, 120);
   }
 }
 
