@@ -39,12 +39,13 @@ function update() {
   }
 }
 
+const dinoImg = document.getElementById("dinoImage");
+
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // 恐竜
-  ctx.fillStyle = "black";
-  ctx.fillRect(dino.x, dino.y, dino.width, dino.height);
+  // 恐竜画像
+  ctx.drawImage(dinoImg, dino.x, dino.y, dino.width, dino.height);
 
   // サボテン
   ctx.fillStyle = "green";
@@ -55,6 +56,7 @@ function draw() {
   ctx.font = "20px sans-serif";
   ctx.fillText("Score: " + score, 650, 30);
 }
+
 
 function loop() {
   if (!gameOver) {
