@@ -1,6 +1,10 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 const dinoImg = document.getElementById("dinoImage");
+const cactusImg = document.getElementById("cactusImage");
+const birdImg = document.getElementById("birdImage");
+const bgImage = document.getElementById("bgImage");
+let bgX = 0;
 
 let dino = { x: 50, y: 150, width: 48, height: 48, vy: 0, gravity: 2, jumpPower: -25, isJumping: false };
 let cactus = { x: 800, y: 160, width: 20, height: 40 };
@@ -94,6 +98,13 @@ function update() {
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  // 背景アニメーション
+bgX -= speed / 2;
+if (bgX <= -800) bgX = 0;
+ctx.drawImage(bgImage, bgX, 0, 800, 200);
+ctx.drawImage(bgImage, bgX + 800, 0, 800, 200);
+
+
   // 地面
   ctx.strokeStyle = "#888";
   ctx.beginPath();
@@ -105,14 +116,10 @@ function draw() {
   ctx.drawImage(dinoImg, dino.x, dino.y, dino.width, dino.height);
 
   // サボテン
-  if (cactus.x > 0) {
-    ctx.fillStyle = "green";
-    ctx.fillRect(cactus.x, cactus.y, cactus.width, cactus.height);
-  }
+  ctx.drawImage(cactusImg, cactus.x, cactus.y, cactus.width, cactus.height);
 
   // 鳥
-  ctx.fillStyle = "gray";
-  ctx.fillRect(bird.x, bird.y, bird.width, bird.height);
+  ctx.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
 
   // スコア表示
   ctx.fillStyle = "black";
