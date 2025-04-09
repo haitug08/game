@@ -3,7 +3,6 @@ const ctx = canvas.getContext("2d");
 const dinoImg = document.getElementById("dinoImage");
 const cactusImg = document.getElementById("cactusImage");
 const birdImg = document.getElementById("birdImage");
-const bgImage = document.getElementById("bgImage");
 let bgX = 0;
 
 let dino = { x: 50, y: 150, width: 48, height: 48, vy: 0, gravity: 2, jumpPower: -25, isJumping: false };
@@ -97,13 +96,6 @@ function update() {
 
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  // 背景アニメーション
-bgX -= speed / 2;
-if (bgX <= -800) bgX = 0;
-ctx.drawImage(bgImage, bgX, 0, 800, 200);
-ctx.drawImage(bgImage, bgX + 800, 0, 800, 200);
-
 
   // 地面
   ctx.strokeStyle = "#888";
